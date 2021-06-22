@@ -1,14 +1,16 @@
-const debounce = require('lodash.debounce');
+const debounceEl = require('lodash.debounce');
 const { defaults } = require('@pnotify/core');
 
 import './styles.css';
-import API from './fetchCountries.js';
+import refsEl from '../src/refs.js';
+import cardForm from '../templates/cardForm.hbs';
+import listCountries from '../templates/listCountries.hbs';
+import API from '../src/fetchCountries';
 
-const inputEl = document.querySelector('.input');
+const refs = getRefs();
 
-inputEl.addEventListener('input', debounce((e) => {
-  console.log(e.target.value);
-  }, 2000))
-
+refs.inputEl.addEventListener('input', debounce(() => {
+console.log();
+}, 500));
 
   

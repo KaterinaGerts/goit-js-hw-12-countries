@@ -1,10 +1,21 @@
 
- function fetchCountries(searchQuery) { 
  const BASE_URL = 'https://restcountries.eu/rest/v2';
  
-  return fetch(`${BASE_URL}/name/${searchQuery}`).then(response => 
-  response.json(),
-  );
+ function fetchCountries(searchQuery) {
+  return fetch(`${BASE_URL}/name/${searchQuery}`)
+  .then(response => {
+    if(response.ok) {
+     return response.json()
+    }
+  })
 }
 
-export default fetchCountries;
+fetchCountries()
+.then(country => {
+  return country;
+})
+.catch(error => {
+  console.log(error);
+});
+
+export default {fetchCountries};
