@@ -5,17 +5,9 @@
   return fetch(`${BASE_URL}/name/${searchQuery}`)
   .then(response => {
     if(response.ok) {
-     return response.json()
-    }
+    return response.json(); 
+    }console.log(response.status);    
   })
 }
 
-fetchCountries()
-.then(country => {
-  return country;
-})
-.catch(error => {
-  console.log(error);
-});
-
-export default {fetchCountries};
+export default fetchCountries;
